@@ -6,4 +6,8 @@ defmodule MathTest do
     assert 3 < 4 + 2
     assert 5 + 1 < 8 + 8
   end
+
+  test "&& assertions" do
+    assert true && true
+  end
 end

@@ -54,4 +54,16 @@ defmodule Assertion.Test do
     """
     }
   end
+
+  def assert(:&&, true, true) do
+    :ok
+  end
+
+  def assert(:&&, lhs, rhs) do
+    {:fail, """
+      ERROR:
+      #{lhs} && #{rhs} expected to be true
+    """
+    }
+  end
 end
