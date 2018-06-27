@@ -49,21 +49,21 @@ defmodule Assertion.Test do
 
   def assert(:<, lhs, rhs) do
     {:fail, """
-      ERROR:
-      #{lhs} expected to be lower than #{rhs}
+    ERROR:
+    #{lhs} expected to be lower than #{rhs}
     """
-    }
-  end
+  }
+end
 
-  def assert(:&&, true, true) do
-    :ok
-  end
+def assert(:&&, true, true) do
+  :ok
+end
 
-  def assert(:&&, lhs, rhs) do
-    {:fail, """
-      ERROR:
-      #{lhs} && #{rhs} expected to be true
-    """
-    }
-  end
+def assert(:&&, lhs, rhs) do
+  {:fail, """
+  ERROR:
+  #{lhs} && #{rhs} expected to be true
+  """
+}
+end
 end
