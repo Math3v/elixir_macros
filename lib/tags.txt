@@ -1,0 +1,12 @@
+form
+frame
+frameset
+h1
+head
+header
+p
+div
+span
+table
+tr
+td
