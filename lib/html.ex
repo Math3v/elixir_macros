@@ -1,5 +1,4 @@
 defmodule Html do
-
   defmacro markup(do: block) do
     quote do
       {:ok, var!(buffer, Html)} = start_buffer([])
@@ -16,19 +15,19 @@ defmodule Html do
 
   def put_buffer(buff, content), do: Agent.update(buff, &[content | &1])
 
-  def render(buff), do: Agent.get(buff, &(&1)) |> Enum.reverse |> Enum.join("")
+  def render(buff), do: Agent.get(buff, & &1) |> Enum.reverse() |> Enum.join("")
 
   defmacro tag(name, do: inner) do
     quote do
-      put_buffer var!(buffer, Html), "<#{unquote(name)}>"
+      put_buffer(var!(buffer, Html), "<#{unquote(name)}>")
       unquote(inner)
-      put_buffer var!(buffer, Html), "</#{unquote(name)}>"
+      put_buffer(var!(buffer, Html), "</#{unquote(name)}>")
     end
   end
 
   defmacro text(string) do
     quote do
-      put_buffer var!(buffer, Html), unquote(string)
+      put_buffer(var!(buffer, Html), unquote(string))
     end
   end
 end
