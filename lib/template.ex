@@ -3,7 +3,7 @@ defmodule Template do
 
   def render do
     markup do
-      table do
+      table class: "test-class" do
         tr do
           for i <- 0..5 do
             td do
